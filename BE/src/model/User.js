@@ -1,0 +1,22 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+const validator = require("validator");
+const User = new Schema({
+  ldap: String,
+  name: String,
+  password: String,
+  email: {
+    type: String,
+    unique: true,
+    validate: (value) => {
+      if (!validator.isEmail(value)) {
+        throw new Error({ error: "Invalid Email address" });
+      }
+    },
+  },
+  role: { type: String, default: "user" },
+});
+
+module.exports = mongoose.model("User", User);

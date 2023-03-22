@@ -1,0 +1,22 @@
+--- Mongoose
+là Object model driver đứng giữa Node và MongoDB cung cấp các dịch vụ truy cập đến DB, k nhất thiết, chỉ cần MongoDB cũng có thể connect dc
+để làm việc với async, hỗ trợ promise, callback
+
+
+---- mongoDB
+Ưu :
+Ko nhất thiết collection giống nhau, 
+
+
+
+Nhược: 
+
+
+bcrypt.js: Dùng để mã hóa (hash) mật khẩu của user trước khi lưu chúng trong database.
+validator: Chúng ta sử dụng package này để validate input của user. Ví dụ như đảm bảo rằng người dùng đưa ra một input là một email đúng định dạng
+Jsonwebtoken - JSON Web Token (JWT) sẽ sử dụng để authentication và authorization 
+(để hiểu rõ hơn 2 cái này là gì và khác biệt như thế nào các bạn hãy đọc thêm 
+http://www.differencebetween.net/technology/difference-between-authentication-and-authorization/). 
+Chẳng hạn Package này sẽ giúp chúng ta thiết lập những route được bảo vệ mà chỉ những user đã đăng nhập mới được truy cập.
+env-cmd: Package này sẽ cho chúng ta tạo và quản lý những biến môi trường trong project
+Event Emit : như event bus
