@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 const validator = require("validator");
 const User = new Schema({
   ldap: String,
@@ -16,7 +15,14 @@ const User = new Schema({
       }
     },
   },
+  avatar: String,
   role: { type: String, default: "user" },
+  rooms: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Room",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", User);

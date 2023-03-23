@@ -60,4 +60,10 @@ module.exports = {
       .status(statusCode.SUCCESS)
       .json({ message: "Create User Successfully" });
   },
+  getRoom: function name(req, res) {
+    try {
+      const { rooms } = User.findOne({ _id: req.body.id }).populate("rooms");
+      return res.send(statusCode.SUCCESS).json({ rooms });
+    } catch (error) {}
+  },
 };
