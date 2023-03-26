@@ -4,12 +4,13 @@ const Schema = mongoose.Schema;
 const Room = new Schema({
   name: String,
   backgroundImage: String,
-  rooms: [
+  users: [
     {
       type: Schema.Types.ObjectId,
-      ref: "user",
+      ref: "User",
     },
   ],
+  limitMember: String,
 });
 
 module.exports = mongoose.model("Room", Room);

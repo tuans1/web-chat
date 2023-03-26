@@ -1,6 +1,7 @@
 const Room = require("../models/Room");
 const statusCode = require("../exception/StatusCode");
 const UserException = require("../exception/UserException");
+const { ObjectId } = require("bson");
 module.exports = {
   getAllUserInRoom: async function name(req, res) {
     const room = await Room.findById({ _id: req.params.id }).populate("users");
@@ -14,7 +15,7 @@ module.exports = {
     res.send("SUCESS");
     // res.status(statusCode.SUCCESS).send({ rooms: userRoomList.rooms });
   },
-  createRoom: function name(req, res) {
+  createMessage: function name(req, res) {
     try {
       req.body.users = [req.body.user_id];
       const room = new Room(req.body);

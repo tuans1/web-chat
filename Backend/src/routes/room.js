@@ -4,13 +4,11 @@ const RoomController = require("../controllers/RoomController");
 // middleware that is specific to this router
 // define the home page route
 router.use((req, res, next) => {
-  console.log("Time in Product: ", Date.now());
+  console.log("Time in ROOM: ", Date.now());
   next();
 });
-router.get("/create-room",RoomController.create);
-// define the about route
-router.get("/about", (req, res) => {
-  res.send("About birds");
-});
+router.get("/get-all-user-in-room/:id",RoomController.getAllUserInRoom);
+router.post("/create-room",RoomController.createRoom);
+router.post("/add-user-to-room",RoomController.addUserToRoom);
 
 module.exports = router;

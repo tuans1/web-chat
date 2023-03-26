@@ -7,7 +7,7 @@ const UserException = require("../exception/UserException");
 // middleware that is specific to this router
 // define the home page route
 router.post("/login", UserController.login);
-router.use(checkAuth); // middleware
+// router.use(checkAuth); // middleware
 router.get("/auth", (req, res) => {
   return res.send("Good");
 });
@@ -15,10 +15,10 @@ router.get("/dashboard", (req, res) => {
   return res.send("Good");
 });
 router.get("/", UserController.index);
+router.get("/user-rooms/:id", UserController.getAllRoomByUser);
 router.post("/register", UserController.register);
-router.get("/private", UserController.private);
 function checkAuth(req, res, next) {
-  console.log("RUN")
+  console.log("check Auth")
   const { token } = req.cookies;
   if (!token) {
     return res.status(statusCode.UNAUTHORIZED).json(UserException.UNAUTHORIZED);

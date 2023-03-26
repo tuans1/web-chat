@@ -29,10 +29,13 @@ module.exports = {
         .json({ error: userException.USER_NOT_FOUND });
     }
     const token = jwt.sign({ id: user._id }, "leofromvn");
-    return res.status(statusCode.SUCCESS).json({token});
+    return res.status(statusCode.SUCCESS).json({ token });
   },
-  private: function name(req, res) {
-      res.send("Success");
+  getAllRoomByUser: async function name(req, res) {
+    const user = await User.findById({ _id: req.params.id }).populate(
+      "rooms"
+    );
+    res.status(statusCode.SUCCESS).send({ rooms: user.rooms });
   },
   register: async function (req, res) {
     const isExist = await User.collection
